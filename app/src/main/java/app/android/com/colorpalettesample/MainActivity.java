@@ -36,21 +36,18 @@ public class MainActivity extends AppCompatActivity {
         Palette.from(BitmapFactory.decodeResource(getResources(),R.drawable.tiger1)).generate(new Palette.PaletteAsyncListener() {
             @Override
             public void onGenerated(Palette palette) {
-                Toast.makeText(MainActivity.this,"",Toast.LENGTH_SHORT).show();
                 rlView1.setBackground(getGradientDrawable(palette.getMutedSwatch().getRgb(),palette.getLightMutedSwatch().getRgb(),palette.getDarkMutedSwatch().getRgb()));
             }
         });
         Palette.from(BitmapFactory.decodeResource(getResources(),R.drawable.tiger2)).generate(new Palette.PaletteAsyncListener() {
             @Override
             public void onGenerated(Palette palette) {
-                Toast.makeText(MainActivity.this,"",Toast.LENGTH_SHORT).show();
-                rlView2.setBackground(getGradientDrawable(palette.getMutedSwatch().getRgb(),palette.getLightMutedSwatch().getRgb(),palette.getDarkMutedSwatch().getRgb()));
+                rlView2.setBackground(getGradientDrawable(palette.getMutedSwatch().getRgb(),palette.getLightVibrantSwatch().getRgb(),palette.getDarkMutedSwatch().getRgb()));
             }
         });
         Palette.from(BitmapFactory.decodeResource(getResources(),R.drawable.tiger3)).generate(new Palette.PaletteAsyncListener() {
             @Override
             public void onGenerated(Palette palette) {
-                Toast.makeText(MainActivity.this,"",Toast.LENGTH_SHORT).show();
                 rlView3.setBackground(getGradientDrawable(palette.getMutedSwatch().getRgb(),palette.getLightMutedSwatch().getRgb(),palette.getDarkMutedSwatch().getRgb()));
             }
         });
@@ -60,15 +57,15 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-    private GradientDrawable getGradientDrawable(int top,int center,int bottom)
+    private GradientDrawable getGradientDrawable(int topColor,int centerColor,int bottomColor)
     {
         GradientDrawable gradientDrawable = new GradientDrawable();
         gradientDrawable.setOrientation(GradientDrawable.Orientation.TOP_BOTTOM);
         gradientDrawable.setShape(GradientDrawable.RECTANGLE);
         gradientDrawable.setColors(new int[]{
-                top,
-                center,
-                bottom
+                topColor,
+                centerColor,
+                bottomColor
         });
         return gradientDrawable;
     }
