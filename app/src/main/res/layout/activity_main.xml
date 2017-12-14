@@ -31,10 +31,9 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <ImageView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
             android:id="@+id/iv_image_1"
-            android:src="@mipmap/ic_launcher" />
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
     </RelativeLayout>
 
     <RelativeLayout
@@ -47,10 +46,9 @@
         app:layout_constraintVertical_chainStyle="spread">
 
         <ImageView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
             android:id="@+id/iv_image_2"
-            android:src="@mipmap/ic_launcher" />
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
     </RelativeLayout>
 
     <RelativeLayout
@@ -62,10 +60,9 @@
         app:layout_constraintTop_toBottomOf="@id/rl_layout_2">
 
         <ImageView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
             android:id="@+id/iv_image_3"
-            android:src="@mipmap/ic_launcher" />
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
     </RelativeLayout>
 
 </android.support.constraint.ConstraintLayout>

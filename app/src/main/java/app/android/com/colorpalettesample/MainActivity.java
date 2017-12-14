@@ -74,7 +74,7 @@ public class MainActivity extends AppCompatActivity {
      * @return return top color for gradient either muted or vibrant whatever is available
      */
     private int getTopColor(Palette palette) {
-        if (palette.getVibrantSwatch() != null && palette.getMutedSwatch() != null)
+        if (palette.getMutedSwatch() != null || palette.getVibrantSwatch() != null)
             return palette.getMutedSwatch() != null ? palette.getMutedSwatch().getRgb() : palette.getVibrantSwatch().getRgb();
         else return Color.RED;
     }
@@ -84,7 +84,7 @@ public class MainActivity extends AppCompatActivity {
      * @return return center light color for gradient either muted or vibrant whatever is available
      */
     private int getCenterLightColor(Palette palette) {
-        if (palette.getLightMutedSwatch() != null && palette.getLightVibrantSwatch() != null)
+        if (palette.getLightMutedSwatch() != null || palette.getLightVibrantSwatch() != null)
             return palette.getLightMutedSwatch() != null ? palette.getLightMutedSwatch().getRgb() : palette.getLightVibrantSwatch().getRgb();
         else return Color.GREEN;
     }
@@ -94,7 +94,7 @@ public class MainActivity extends AppCompatActivity {
      * @return return bottom dark color for gradient either muted or vibrant whatever is available
      */
     private int getBottomDarkColor(Palette palette) {
-        if (palette.getDarkMutedSwatch() != null && palette.getDarkVibrantSwatch() != null)
+        if (palette.getDarkMutedSwatch() != null || palette.getDarkVibrantSwatch() != null)
             return palette.getDarkMutedSwatch() != null ? palette.getDarkMutedSwatch().getRgb() : palette.getDarkVibrantSwatch().getRgb();
         else return Color.BLUE;
     }
