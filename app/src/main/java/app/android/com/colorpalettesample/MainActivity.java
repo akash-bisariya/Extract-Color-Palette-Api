@@ -23,32 +23,32 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        ivImage1=findViewById(R.id.iv_image_1);
-        ivImage2=findViewById(R.id.iv_image_2);
-        ivImage3=findViewById(R.id.iv_image_3);
-        rlView1=findViewById(R.id.rl_layout_1);
-        rlView2=findViewById(R.id.rl_layout_2);
-        rlView3=findViewById(R.id.rl_layout_3);
+        ivImage1 = findViewById(R.id.iv_image_1);
+        ivImage2 = findViewById(R.id.iv_image_2);
+        ivImage3 = findViewById(R.id.iv_image_3);
+        rlView1 = findViewById(R.id.rl_layout_1);
+        rlView2 = findViewById(R.id.rl_layout_2);
+        rlView3 = findViewById(R.id.rl_layout_3);
         ivImage1.setImageResource(R.drawable.tiger1);
         ivImage2.setImageResource(R.drawable.tiger4);
         ivImage3.setImageResource(R.drawable.tiger3);
 
-        Palette.from(BitmapFactory.decodeResource(getResources(),R.drawable.tiger1)).generate(new Palette.PaletteAsyncListener() {
+        Palette.from(BitmapFactory.decodeResource(getResources(), R.drawable.tiger1)).generate(new Palette.PaletteAsyncListener() {
             @Override
             public void onGenerated(Palette palette) {
-                rlView1.setBackground(getGradientDrawable(getTopColor(palette),getCenterLightColor(palette),getBottomDarkColor(palette)));
+                rlView1.setBackground(getGradientDrawable(getTopColor(palette), getCenterLightColor(palette), getBottomDarkColor(palette)));
             }
         });
-        Palette.from(BitmapFactory.decodeResource(getResources(),R.drawable.tiger4)).generate(new Palette.PaletteAsyncListener() {
+        Palette.from(BitmapFactory.decodeResource(getResources(), R.drawable.tiger4)).generate(new Palette.PaletteAsyncListener() {
             @Override
             public void onGenerated(Palette palette) {
-                rlView2.setBackground(getGradientDrawable(getTopColor(palette),getCenterLightColor(palette),getBottomDarkColor(palette)));
+                rlView2.setBackground(getGradientDrawable(getTopColor(palette), getCenterLightColor(palette), getBottomDarkColor(palette)));
             }
         });
-        Palette.from(BitmapFactory.decodeResource(getResources(),R.drawable.tiger3)).generate(new Palette.PaletteAsyncListener() {
+        Palette.from(BitmapFactory.decodeResource(getResources(), R.drawable.tiger3)).generate(new Palette.PaletteAsyncListener() {
             @Override
             public void onGenerated(Palette palette) {
-                rlView3.setBackground(getGradientDrawable(getTopColor(palette),getCenterLightColor(palette),getBottomDarkColor(palette)));
+                rlView3.setBackground(getGradientDrawable(getTopColor(palette), getCenterLightColor(palette), getBottomDarkColor(palette)));
             }
         });
     }
@@ -57,8 +57,7 @@ public class MainActivity extends AppCompatActivity {
     /*
     Creating gradient drawable to be used as a background using three colors - top color ,center light color and bottom dark color
      */
-    private GradientDrawable getGradientDrawable(int topColor,int centerColor,int bottomColor)
-    {
+    private GradientDrawable getGradientDrawable(int topColor, int centerColor, int bottomColor) {
         GradientDrawable gradientDrawable = new GradientDrawable();
         gradientDrawable.setOrientation(GradientDrawable.Orientation.TOP_BOTTOM);
         gradientDrawable.setShape(GradientDrawable.RECTANGLE);
@@ -71,32 +70,32 @@ public class MainActivity extends AppCompatActivity {
     }
 
     /**
-     *
      * @param palette generated palette from image
      * @return return top color for gradient either muted or vibrant whatever is available
      */
-    private int getTopColor(Palette palette)
-    {
-        return palette.getMutedSwatch()!=null?palette.getMutedSwatch().getRgb():palette.getVibrantSwatch().getRgb();
+    private int getTopColor(Palette palette) {
+        if (palette.getVibrantSwatch() != null && palette.getMutedSwatch() != null)
+            return palette.getMutedSwatch() != null ? palette.getMutedSwatch().getRgb() : palette.getVibrantSwatch().getRgb();
+        else return Color.RED;
     }
 
     /**
-     *
      * @param palette generated palette from image
      * @return return center light color for gradient either muted or vibrant whatever is available
      */
-    private int getCenterLightColor(Palette palette)
-    {
-        return palette.getLightMutedSwatch()!=null?palette.getLightMutedSwatch().getRgb():palette.getLightVibrantSwatch().getRgb();
+    private int getCenterLightColor(Palette palette) {
+        if (palette.getLightMutedSwatch() != null && palette.getLightVibrantSwatch() != null)
+            return palette.getLightMutedSwatch() != null ? palette.getLightMutedSwatch().getRgb() : palette.getLightVibrantSwatch().getRgb();
+        else return Color.GREEN;
     }
 
     /**
-     *
      * @param palette generated palette from image
      * @return return bottom dark color for gradient either muted or vibrant whatever is available
      */
-    private int getBottomDarkColor(Palette palette)
-    {
-        return palette.getDarkMutedSwatch()!=null?palette.getDarkMutedSwatch().getRgb():palette.getDarkVibrantSwatch().getRgb();
+    private int getBottomDarkColor(Palette palette) {
+        if (palette.getDarkMutedSwatch() != null && palette.getDarkVibrantSwatch() != null)
+            return palette.getDarkMutedSwatch() != null ? palette.getDarkMutedSwatch().getRgb() : palette.getDarkVibrantSwatch().getRgb();
+        else return Color.BLUE;
     }
 }
